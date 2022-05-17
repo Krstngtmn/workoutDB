@@ -1,28 +1,12 @@
 const addworkout = require("express").Router();
 const { connectToDatabase } = require("../db/conn");
 
-const getCircularReplacer = () => {
-  const seen = new WeakSet();
-  return (key, value) => {
-    if (typeof value === "object" && value !== null) {
-      if (seen.has(value)) {
-        return;
-      }
-      seen.add(value);
-    }
-    return value;
-  };
-};
-
-
-
 addworkout.post("/addworkout", async function (req, res) {
   try {
     // let { db } = await connectToDatabase();
 
     return res.json({
-      message: req,
-      test: JSON.stringify(req, getCircularReplacer()),
+      message: req.body,
       success: true,
     });
 
