@@ -4,6 +4,7 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const helmet = require("helmet");
+const dbo = require("./db/conn");
 
 var allowedOrigins = ["https://example.com"];
 /* var corsOptions = {
@@ -20,5 +21,12 @@ const app = express();
 
 app.use(helmet());
 /* app.use(cors(corsOptions)); */
+
+app.listen(port, () => {
+  dbo.connectToServer(function (err) {
+    if (err) console.error(err);
+  });
+  console.log(`Server is running on port ${port}`);
+});
 
 module.exports = app;
