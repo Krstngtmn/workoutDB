@@ -12,9 +12,11 @@ newWorkout.post("/workout-add", async function (req, res) {
       finished_workouts: req.body.finished_workouts,
     };
     
-    await db
-      .collection('workouts')
-      .insertOne(workout);
+    // await db
+    //   .collection('workouts')
+    //   .insertOne(workout);
+
+    await db.collection('workouts').insertOne(JSON.parse(workout));
 
     return res.json({
       message: 'Post added successfully',
