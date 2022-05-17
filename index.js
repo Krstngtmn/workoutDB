@@ -1,12 +1,12 @@
-// const express = require("express");
-// const app = express();
-// const cors = require("cors");
-// require("dotenv").config({ path: "./config.env" });
-// const port = process.env.PORT || 5001;
-// app.use(cors());
-// app.use(express.json());
-// app.use(require("./api/workouts"));
-// const dbo = require("./db/conn");
+const express = require("express");
+const app = express();
+const cors = require("cors");
+require("dotenv").config({ path: "./config.env" });
+const port = process.env.PORT || 5001;
+app.use(cors());
+app.use(express.json());
+app.use(require("./api/workouts"));
+const dbo = require("./db/conn");
 
 // app.listen(port, () => {
 //   dbo.connectToServer(function (err) {
@@ -17,13 +17,13 @@
 
 // module.exports = app;
 
-const express = require("express");
-const app = express();
-app.use(require("./api/workouts"));
-app.use(express.json());
+// const express = require("express");
+// const app = express();
+// app.use(require("./api/workouts"));
+// app.use(express.json());
 
 app.get("/", (req, res) => {
-  res.send(res);
+  res.send("Express on Vercel");
 });
 
 app.listen(5001, () => {
