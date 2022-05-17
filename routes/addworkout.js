@@ -6,10 +6,10 @@ addworkout.post("/addworkout", async function (req, res) {
     let { db } = await connectToDatabase();
 
     let workout = {
-      user_id: 123,
-      workout_name: 'req.body.workout_name',
-      exercises: [{name: 'req.body.exercises'}],
-      finished_workouts: 'req.body.finished_workouts',
+      user_id: req.body.user_id,
+      workout_name: req.body.workout_name,
+      exercises: req.body.exercises,
+      finished_workouts: req.body.finished_workouts,
     };
     
     await db
