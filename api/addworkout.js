@@ -1,5 +1,5 @@
 const app = require("../app");
-const route = require("../routes/workout-add");
+const route = require("../routes/addworkout");
 
 app.use("/api/", route);
 

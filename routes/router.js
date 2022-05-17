@@ -3,15 +3,15 @@
 const routes = require("express").Router();
 
 const workout = require("./workout");
-const workoutAdd = require("./workout-add");
+const addworkout = require("./addworkout");
 const workouts = require("./workouts");
 
 routes.get("/", async function (req, res) {
   res.send(`Hello!`);
 });
 
-routes.use("/", workout);
-routes.use("/", workoutAdd);
 routes.use("/", workouts);
+routes.use("/", workout);
+routes.use("/", addworkout);
 
 module.exports = routes;
