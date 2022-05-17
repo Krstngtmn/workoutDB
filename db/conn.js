@@ -26,7 +26,7 @@
 import { MongoClient } from 'mongodb';
 
 const MONGODB_URI = process.env.DB_SERVER;
-const MONGODB_DB = "workout-app";
+const MONGODB_DB = "workoutDB";
 
 // check the MongoDB URI
 if (!MONGODB_URI) {
