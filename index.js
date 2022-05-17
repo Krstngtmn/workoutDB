@@ -5,7 +5,7 @@ require("dotenv").config({ path: "./config.env" });
 const port = process.env.PORT || 5001;
 app.use(cors());
 app.use(express.json());
-app.use(require("./routes/workouts"));
+app.use(require("./api/workouts"));
 const dbo = require("./db/conn");
 
 app.listen(port, () => {
