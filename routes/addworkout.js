@@ -6,7 +6,7 @@ addworkout.post("/addworkout", async function (req, res) {
     let { db } = await connectToDatabase();
 
     return res.json({
-      message: JSON.parse(req),
+      message: req,
       success: true,
     });
 
