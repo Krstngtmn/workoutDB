@@ -5,11 +5,13 @@ addworkout.post("/addworkout", async function (req, res) {
   try {
     let { db } = await connectToDatabase();
 
+    const requestJSON = JSON.parse(req.body);
+
     let workout = {
-      user_id: req.body.user_id,
-      workout_name: req.body.workout_name,
-      exercises: req.body.exercises,
-      finished_workouts: req.body.finished_workouts,
+      user_id: requestJSON.user_id,
+      workout_name: requestJSON.workout_name,
+      exercises: requestJSON.exercises,
+      finished_workouts: requestJSON.finished_workouts,
     };
     
     await db
@@ -22,7 +24,7 @@ addworkout.post("/addworkout", async function (req, res) {
     });
   } catch (error) {
     return res.json({
-        response: req,
+        response: requestJSON,
         message: new Error(error).message,
         success: false,
     });
