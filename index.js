@@ -23,7 +23,7 @@ app.use(require("./api/workouts"));
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  res.send("Express on Vercel");
+  res.send(res);
 });
 
 app.listen(5001, () => {
