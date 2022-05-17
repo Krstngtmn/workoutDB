@@ -22,25 +22,19 @@ workouts.get("/workouts", async function (req, res) {
   //   });
 
   try {
-    // connect to the database
     let { db } = await connectToDatabase();
-    // fetch the posts
-    let posts = await db
+    let workouts = await db
         .collection('workouts')
         .find({})
         .toArray();
-    // return the posts
-    return res.json({
-        message: JSON.parse(JSON.stringify(posts)),
-        success: true,
-    });
-} catch (error) {
-    // return the error
+
+    return res.json(workouts);
+  } catch (error) {
     return res.json({
         message: new Error(error).message,
         success: false,
     });
-}
+  }
 });
 
 module.exports = workouts;
