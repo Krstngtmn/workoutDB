@@ -5,8 +5,10 @@ addworkout.post("/addworkout", async function (req, res) {
   try {
     // let { db } = await connectToDatabase();
 
+    const { user_id } = req.body;
+
     return res.json({
-      message: JSON.stringify(req.body, null, 2),
+      message: user_id,
       success: true,
     });
 
