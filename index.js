@@ -1,12 +1,12 @@
-const express = require("express");
-const app = express();
-const cors = require("cors");
-require("dotenv").config({ path: "./config.env" });
-const port = process.env.PORT || 5001;
-app.use(cors());
-app.use(express.json());
-app.use(require("./api/workouts"));
-const dbo = require("./db/conn");
+// const express = require("express");
+// const app = express();
+// const cors = require("cors");
+// require("dotenv").config({ path: "./config.env" });
+// const port = process.env.PORT || 5001;
+// app.use(cors());
+// app.use(express.json());
+// app.use(require("./routes/workouts"));
+// const dbo = require("./db/conn");
 
 // app.listen(port, () => {
 //   dbo.connectToServer(function (err) {
@@ -17,14 +17,17 @@ const dbo = require("./db/conn");
 
 // module.exports = app;
 
-// const express = require("express");
-// const app = express();
-// app.use(require("./api/workouts"));
-// app.use(express.json());
+const express = require("express");
+const cors = require("cors");
+const app = express();
+app.use(cors());
+app.use(express.json());
 
-app.get("/", (req, res) => {
-  res.send("Express on Vercel");
-});
+app.use("/", require("./routes/workouts"));
+
+// app.get("/", (req, res) => {
+//   res.send("Express on Vercel");
+// });
 
 app.listen(5001, () => {
   console.log("Running on port 5000.");
