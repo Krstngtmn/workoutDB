@@ -2,8 +2,8 @@
 
 const routes = require("express").Router();
 
-const book = require("./book");
-const books = require("./workouts");
+const workout = require("./workout");
+const workouts = require("./workouts");
 
 routes.get("/", async function (req, res) {
   //homepage route returns some HTML
@@ -12,7 +12,7 @@ routes.get("/", async function (req, res) {
             <a href='/books'>Books</a>`);
 });
 
-routes.use("/", book);
+routes.use("/", workout);
 routes.use("/", workouts);
 
 module.exports = routes;
