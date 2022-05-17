@@ -17,10 +17,12 @@ changeworkout.post("/changeworkout", async function (req, res) {
           finished_workouts: requestJSON.finished_workouts,
         },
       };
+
+      await db.collection('workouts').updateOne(myquery, newValues);
       
-      await db
-        .collection('workouts')
-        .update(myquery, newValues);
+      // await db
+      //   .collection('workouts')
+      //   .update(myquery, newValues);
 
       return res.json({
         message: 'Post changed successfully',
