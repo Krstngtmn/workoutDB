@@ -18,14 +18,15 @@
 // module.exports = app;
 
 const express = require("express");
-
 const app = express();
+app.use(require("./api/workouts"));
+app.use(express.json());
 
 app.get("/", (req, res) => {
   res.send("Express on Vercel");
 });
 
-app.listen(5000, () => {
+app.listen(5001, () => {
   console.log("Running on port 5000.");
 });
 
