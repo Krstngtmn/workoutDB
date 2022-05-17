@@ -1,17 +1,17 @@
 const { MongoClient } = require("mongodb");
-const Db = "mongodb+srv://kris:Kriskris123@workout-app.m5vq5.mongodb.net/workoutDB?retryWrites=true&w=majority";
+const Db = process.env.DB_SERVER;
 const client = new MongoClient(Db, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
 
-let dbo;
+let _db;
 
 module.exports = {
   connectToServer: function (callback) {
     client.connect(function (err, db) {
       if (db) {
-        dbo = db.db("workoutDB");
+        _db = db.db("workoutDB");
         console.log("Successfully connected to MongoDB.");
       }
       return callback(err);
@@ -19,8 +19,6 @@ module.exports = {
   },
 
   getDb: function () {
-    return dbo;
+    return _db;
   },
 };
-
-module.exports = dbo;
