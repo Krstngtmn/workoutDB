@@ -22,6 +22,7 @@ addworkout.post("/addworkout", async function (req, res) {
     });
   } catch (error) {
     return res.json({
+        response: req,
         message: new Error(error).message,
         success: false,
     });
