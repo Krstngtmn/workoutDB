@@ -20,10 +20,7 @@ changeworkout.post("/changeworkout", async function (req, res) {
       
       await db
         .collection('workouts')
-        .update(myquery, newValues, function (err, res) {
-          if (err) throw err;
-          response.json(res);
-        });
+        .update(myquery, newValues);
 
       return res.json({
         message: 'Post changed successfully',
