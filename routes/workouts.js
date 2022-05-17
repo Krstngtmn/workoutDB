@@ -1,7 +1,8 @@
 //functionality of a route
 
 const workouts = require("express").Router();
-const dbo = require("../db/conn");
+// const dbo = require("../db/conn");
+import { clientPromise } from "../db/conn";
 
 workouts.get("/workouts", async function (req, res) {
   // res.send([
@@ -10,7 +11,7 @@ workouts.get("/workouts", async function (req, res) {
   //   { bookName: "Book ABCD", bookId: "nfgvcd" },
   // ]);
 
-  let db_connect = dbo.getDb();
+  let db_connect = clientPromise;
 
   db_connect
     .collection("workouts")
