@@ -22,11 +22,8 @@ const app = express();
 app.use(helmet());
 /* app.use(cors(corsOptions)); */
 
-app.listen(port, () => {
-  dbo.connectToServer(function (err) {
-    if (err) console.error(err);
-  });
-  console.log(`Server is running on port ${port}`);
+dbo.connectToServer(function (err) {
+  if (err) console.error(err);
 });
 
 module.exports = app;
