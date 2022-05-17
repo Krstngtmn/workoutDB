@@ -1,6 +1,7 @@
 //functionality of a route
 
 const workouts = require("express").Router();
+const dbo = require("../db/conn");
 
 workouts.get("/workouts", async function (req, res) {
   // res.send([
