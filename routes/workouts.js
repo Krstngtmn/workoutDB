@@ -19,6 +19,8 @@ workouts.get("/workouts", async function (req, res) {
       if (err) throw err;
       res.json(result);
     });
+
+  res.send(db_connect);
 });
 
 module.exports = workouts;
