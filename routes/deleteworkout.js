@@ -2,7 +2,7 @@ const deleteworkout = require("express").Router();
 const ObjectId = require('mongodb').ObjectId;
 const { connectToDatabase } = require("../db/conn");
 
-deleteworkout.get("/deleteworkout", async function (req, res) {
+deleteworkout.post("/deleteworkout", async function (req, res) {
   const { workoutId } = req.query;
   if (workoutId) {
     try {
